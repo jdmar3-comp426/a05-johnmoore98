@@ -1,0 +1,31 @@
+{
+  "name": "a05-johnmoore98",
+  "version": "1.0.0",
+  "description": "Make a form talk to an API",
+  "main": "index.js",
+  "scripts": {
+    "client": "npx browser-sync start -sw",
+    "server": "node server.js",
+    "start": "concurrently --kill-others 'npm run client' 'npm run server'"
+  },
+  "proxy": "http://localhost:8080",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmar3-comp426/a05-johnmoore98.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdmar3-comp426/a05-johnmoore98/issues"
+  },
+  "homepage": "https://github.com/jdmar3-comp426/a05-johnmoore98#readme",
+  "dependencies": {
+    "better-sqlite3": "^7.4.5",
+    "browser-sync": "^2.27.7",
+    "concurrently": "^6.4.0",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "md5": "^2.3.0",
+    "npm": "^8.2.0"
+  }
+}
