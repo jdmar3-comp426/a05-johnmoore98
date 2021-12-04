@@ -8,9 +8,15 @@ var db = require("./database.js")
 // Require md5 MODULE
 var md5 = require("md5")
 
+//Requre cors module
+const cors = require("cors");
+
 // Make Express use its own built-in body parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//Make Express use CORS
+app.use(cors()) ; 
 
 // Set server port
 const HTTP_PORT = 5000
@@ -29,7 +35,7 @@ app.get("/app/", (req, res, next) => {
 // CREATE a new user (HTTP method POST) at endpoint /app/new/
 app.post("/app/new/", (req, res) => {
 	const stmt = db.prepare("INSERT INTO userinfo (user, pass) VALUES (?, ?)");
-	const info = stmt.run(req.body.user, md5(req.body.pass));
+	const info = stmt.run(req.body.user, md5(req.body.password));
 	res.json({"message":`${info.changes} record created: ID ${info.lastInsertRowid} (201)`});
 	res.status(201);
 })
